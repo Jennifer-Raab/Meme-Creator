@@ -1,3 +1,18 @@
+:root {
+  --primary: #84dcc6;
+  --secondary: #283618;
+  --thirdy: #4b4e6d;
+  --fourthy: #ffd3ba;
+  --fithy: #dd5e98;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary);
+}
+
 .App {
   text-align: center;
 }
@@ -15,13 +30,13 @@
   width: 500px;
   height: 500px;
   object-fit: contain;
-  border: 1px solid green;
+  border: 1px solid var(--secondary);
 }
 
 .meme-text {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: white;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 1px var(--secondary);
   position: absolute;
 }
 
@@ -31,4 +46,48 @@
 
 .bottom {
   margin-top: 450px;
+}
+
+.btn {
+  padding: 0.5em 2em;
+  font-size: 1.5em;
+  background-color: var(--fourthy);
+  color: var(--secondary);
+  font-weight: 300;
+}
+
+.button {
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.confirm-btn {
+  margin-top: 0.8em;
+  font-size: 1.1em;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--secondary);
+}
+
+h2 {
+  max-width: 450px;
+  color: var(--fourthy);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+form input {
+  background-color: var(--fourthy);
+  color: var(--secondary);
+  margin-top: 1rem;
+  height: 1.5rem;
+  width: 15rem;
 }

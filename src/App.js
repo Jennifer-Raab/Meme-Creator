@@ -10,6 +10,7 @@ export default function App() {
     textBottom: "",
   });
   const [counter, setCounter] = useState(0);
+  const [upload, setUpload] = useState();
 
   console.log(memeText);
 
@@ -37,20 +38,40 @@ export default function App() {
   const previous = () => {
     setCounter(counter - 1);
   };
+  // Upload picture
+  const handleUpload = (event) => {
+    console.log(event.target.files);
+    setUpload({
+      name: event.target.files[0].name,
+      url: URL.createObjectURL(event.target.files[0]),
+    });
+  };
+  console.log("upload", upload);
 
   return (
     <div className="App">
-      <h1>Meme Generator</h1>
-      <CurrentMeme memes={memes} memeText={memeText} counter={counter} />
+      <h1>Create your Own Meme!</h1>
+      <CurrentMeme
+        memes={memes}
+        memeText={memeText}
+        counter={counter}
+        upload={upload}
+      />
       <form onSubmit={handleMemeText}>
-        <input type="text" name="textTop" />
-        <input type="text" name="textBottom" />
-        <button>Confirm</button>
+        <input type="text" name="textTop" placeholder="Text for Top" />
+        <input type="text" name="textBottom" placeholder="Text for Bottom" />
+        <button className="confirm-btn">Confirm</button>
       </form>
 
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
-      {console.log(counter)}
+      <div className="button">
+        <button className="btn-previous btn" onClick={previous}>
+          Previous
+        </button>
+        <button className="btn-next btn" onClick={next}>
+          Next
+        </button>
+      </div>
+      <input className="btn-file" type="file" onChange={handleUpload} />
     </div>
   );
 }
